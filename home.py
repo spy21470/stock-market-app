@@ -54,7 +54,7 @@ def fetch_quote(ticker):
     last = getattr(t, "history")(period="1d").tail(1)
     print = None
     if not last.empty:
-        price = float(lasst["Close"].iloc[-1])
+        price = float(last["Close"].iloc[-1])
     prev_close = getattr(info, "previous_close",None) if isinstance(info, dict) else getattr(info, "previous_close", None)
     return price, prev_close
 
@@ -85,4 +85,5 @@ with right:
         st.page_link("pages/1_📊_Stock_Data.py", label="📊 ราคาหุ้น – Stock Prices")
         st.page_link("pages/2_📚_Education.py", label="📚 ความรู้หุ้น – Investing Basics")
     except Exception:
+
         st.info("ใช้เมนู Sidebar เพื่อสลับหน้า (หรืออัปเกรด Streamlit ≥ 1.31 เพื่อใช้ปุ่มลิงก์)")
